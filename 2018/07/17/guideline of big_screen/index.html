@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+    <!-- title -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Jiachen Wang">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Jiachen Wang">
+    <meta name="keywords" content="Jiachen Wang | Jiachen Wang">
+    <meta name="description" content="">
+    <meta name="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>The guideline of the big_screen · Jiachen Wang</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s 1;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= /css/style.css?v=20180604 as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= /css/mobile.css?v=20180604 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?53a3117e9df917026ecd95ce952ed908";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >VIS Studio</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">The guideline of the big_screen</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>VIS Studio</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style=
+
+
+
+
+
+
+
+
+height:50vh;
+
+>
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            The guideline of the big_screen
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">762</span> / Reading time: <span class="post-count">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/07/17</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><h1 id="门卡一定要记得带出来！！！"><a href="#门卡一定要记得带出来！！！" class="headerlink" title="门卡一定要记得带出来！！！"></a><strong>门卡一定要记得带出来！！！</strong></h1><h1 id="没事不要去关闭任何大屏服务器！！！"><a href="#没事不要去关闭任何大屏服务器！！！" class="headerlink" title="没事不要去关闭任何大屏服务器！！！"></a><strong>没事不要去关闭任何大屏服务器！！！</strong></h1><h1 id="用完了关闭-VNC-Viewer-就行，不要关机！！！"><a href="#用完了关闭-VNC-Viewer-就行，不要关机！！！" class="headerlink" title="用完了关闭 VNC Viewer 就行，不要关机！！！"></a><strong>用完了关闭 VNC Viewer 就行，不要关机！！！</strong></h1><h1 id="也不要没事随意去动服务器的IP设置，恢复起来真的很麻烦！！！"><a href="#也不要没事随意去动服务器的IP设置，恢复起来真的很麻烦！！！" class="headerlink" title="也不要没事随意去动服务器的IP设置，恢复起来真的很麻烦！！！"></a><strong>也不要没事随意去动服务器的IP设置，恢复起来真的很麻烦！！！</strong></h1><p><br><br><br></p>
+<h1 id="大屏使用步骤"><a href="#大屏使用步骤" class="headerlink" title="大屏使用步骤"></a>大屏使用步骤</h1><h2 id="1-首先你需要拿到大屏的门卡，大屏是在410-2，进去后，右手边是灯，左手边是空调，进去后先把门卡揣兜里，千万别把门卡放桌上，容易忘记带出来"><a href="#1-首先你需要拿到大屏的门卡，大屏是在410-2，进去后，右手边是灯，左手边是空调，进去后先把门卡揣兜里，千万别把门卡放桌上，容易忘记带出来" class="headerlink" title="1. 首先你需要拿到大屏的门卡，大屏是在410-2，进去后，右手边是灯，左手边是空调，进去后先把门卡揣兜里，千万别把门卡放桌上，容易忘记带出来!"></a>1. 首先你需要拿到大屏的门卡，大屏是在410-2，进去后，右手边是灯，左手边是空调，进去后先把门卡揣兜里，<font color="red">千万别把门卡放桌上</font>，容易忘记带出来!</h2><h2 id="2-桌上有两个大屏的遥控器，都是通用的，对着大屏按下“ON”键，打开大屏。注：第一次按下“ON”可能不能开启所有的屏幕（我也不知道为啥），这时候就要多按几下。"><a href="#2-桌上有两个大屏的遥控器，都是通用的，对着大屏按下“ON”键，打开大屏。注：第一次按下“ON”可能不能开启所有的屏幕（我也不知道为啥），这时候就要多按几下。" class="headerlink" title="2. 桌上有两个大屏的遥控器，都是通用的，对着大屏按下“ON”键，打开大屏。注：第一次按下“ON”可能不能开启所有的屏幕（我也不知道为啥），这时候就要多按几下。"></a>2. 桌上有两个大屏的遥控器，都是通用的，对着大屏按下“<strong>ON</strong>”键，打开大屏。<font color="red">注：第一次按下“<strong>ON</strong>”可能不能开启所有的屏幕（我也不知道为啥），这时候就要多按几下。</font></h2><h2 id="3-屏幕开启后，使用桌上的华硕笔记本，打开桌面上的-BOC，在预设方案里，选择-WEB05（-WEB05-是方形像素适配，大屏的两边会有黑边）-或者-B05（-B05-是通过像素拉伸使得全屏铺满），一般为了视觉效果，使用的都是-B05。选择好之后，大屏上应该已经能显示所选方案的服务器的画面了。"><a href="#3-屏幕开启后，使用桌上的华硕笔记本，打开桌面上的-BOC，在预设方案里，选择-WEB05（-WEB05-是方形像素适配，大屏的两边会有黑边）-或者-B05（-B05-是通过像素拉伸使得全屏铺满），一般为了视觉效果，使用的都是-B05。选择好之后，大屏上应该已经能显示所选方案的服务器的画面了。" class="headerlink" title="3. 屏幕开启后，使用桌上的华硕笔记本，打开桌面上的 BOC，在预设方案里，选择 WEB05（ WEB05 是方形像素适配，大屏的两边会有黑边） 或者 B05（ B05 是通过像素拉伸使得全屏铺满），一般为了视觉效果，使用的都是 B05。选择好之后，大屏上应该已经能显示所选方案的服务器的画面了。"></a>3. 屏幕开启后，使用桌上的华硕笔记本，打开桌面上的 <strong>BOC</strong>，在预设方案里，选择 <strong>WEB05</strong>（ <strong>WEB05</strong> 是方形像素适配，大屏的两边会有黑边） 或者 <strong>B05</strong>（ <strong>B05</strong> 是通过像素拉伸使得全屏铺满），一般为了视觉效果，使用的都是 <strong>B05</strong>。选择好之后，大屏上应该已经能显示所选方案的服务器的画面了。</h2><h2 id="4-选择好适配方案后，在开始菜单中搜索-VNC-Viewer-，打开，连接结尾为：205-的ip，-用户名：-administrator-，密码：-Qaz2wsx"><a href="#4-选择好适配方案后，在开始菜单中搜索-VNC-Viewer-，打开，连接结尾为：205-的ip，-用户名：-administrator-，密码：-Qaz2wsx" class="headerlink" title="4. 选择好适配方案后，在开始菜单中搜索 VNC Viewer ，打开，连接结尾为：205 的ip， 用户名： administrator ，密码： !Qaz2wsx"></a>4. 选择好适配方案后，在开始菜单中搜索 <strong>VNC Viewer</strong> ，打开，连接结尾为：<strong>205</strong> 的ip， 用户名： <strong>administrator</strong> ，密码： <strong>!Qaz2wsx</strong></h2><h2 id="5-现在你已经连上大屏服务器了，可以使用它了。-注：在大屏服务器里，不要按”enter“键，因为他和-BOC-的方案切换热键冲突，按了会直接切换方案。"><a href="#5-现在你已经连上大屏服务器了，可以使用它了。-注：在大屏服务器里，不要按”enter“键，因为他和-BOC-的方案切换热键冲突，按了会直接切换方案。" class="headerlink" title="5. 现在你已经连上大屏服务器了，可以使用它了。 注：在大屏服务器里，不要按”enter“键，因为他和 BOC 的方案切换热键冲突，按了会直接切换方案。"></a>5. 现在你已经连上大屏服务器了，可以使用它了。 <font color="red">注：在大屏服务器里，不要按”<strong>enter</strong>“键，因为他和 <strong>BOC</strong> 的方案切换热键冲突，按了会直接切换方案。</font></h2><p><br><br><br></p>
+<h1 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h1><h2 id="问题一：找不到预设方案"><a href="#问题一：找不到预设方案" class="headerlink" title="问题一：找不到预设方案"></a>问题一：找不到预设方案</h2><h2 id="原因：BOC-没连接上大屏"><a href="#原因：BOC-没连接上大屏" class="headerlink" title="原因：BOC 没连接上大屏"></a>原因：<strong>BOC</strong> 没连接上大屏</h2><h2 id="解决方法：点击“-连接-”"><a href="#解决方法：点击“-连接-”" class="headerlink" title="解决方法：点击“ 连接 ”"></a>解决方法：点击“ <strong>连接</strong> ”</h2><p><br></p>
+<h2 id="问题二：BOC-无法连接"><a href="#问题二：BOC-无法连接" class="headerlink" title="问题二：BOC 无法连接"></a>问题二：<strong>BOC</strong> 无法连接</h2><h2 id="原因：笔记本的wifi没连上或者没连对"><a href="#原因：笔记本的wifi没连上或者没连对" class="headerlink" title="原因：笔记本的wifi没连上或者没连对"></a>原因：笔记本的wifi没连上或者没连对</h2><h2 id="解决方法：将笔记本的wifi连上“-huawei-”，然后重试。"><a href="#解决方法：将笔记本的wifi连上“-huawei-”，然后重试。" class="headerlink" title="解决方法：将笔记本的wifi连上“ huawei ”，然后重试。"></a>解决方法：将笔记本的wifi连上“ <strong>huawei</strong> ”，然后重试。</h2><p><br></p>
+<h2 id="问题三：大屏服务器-B05-和-WEB05-无法上网"><a href="#问题三：大屏服务器-B05-和-WEB05-无法上网" class="headerlink" title="问题三：大屏服务器 B05 和 WEB05 无法上网"></a>问题三：大屏服务器 <strong>B05</strong> 和 <strong>WEB05</strong> 无法上网</h2><h2 id="原因：B01-的-cow-没开"><a href="#原因：B01-的-cow-没开" class="headerlink" title="原因：B01 的 cow 没开"></a>原因：<strong>B01</strong> 的 <strong>cow</strong> 没开</h2><h2 id="解决方法：用-VNC-以同样的方法（相同的账号密码）连上IP我为：-201-的服务器，上去之后，在桌面某个文件夹里直接运行-cow"><a href="#解决方法：用-VNC-以同样的方法（相同的账号密码）连上IP我为：-201-的服务器，上去之后，在桌面某个文件夹里直接运行-cow" class="headerlink" title="解决方法：用 VNC 以同样的方法（相同的账号密码）连上IP我为： 201 的服务器，上去之后，在桌面某个文件夹里直接运行 cow"></a>解决方法：用 <strong>VNC</strong> 以同样的方法（相同的账号密码）连上IP我为： <strong>201</strong> 的服务器，上去之后，在桌面某个文件夹里直接运行 <strong>cow</strong></h2><p><br></p>
+<h2 id="问题四：VNC-连不上大屏服务器（-B01，B05，-WEB05-等）"><a href="#问题四：VNC-连不上大屏服务器（-B01，B05，-WEB05-等）" class="headerlink" title="问题四：VNC 连不上大屏服务器（ B01，B05， WEB05 等）"></a>问题四：<strong>VNC</strong> 连不上大屏服务器（ <strong>B01</strong>，<strong>B05</strong>， <strong>WEB05</strong> 等）</h2><h2 id="原因1：服务器没开机"><a href="#原因1：服务器没开机" class="headerlink" title="原因1：服务器没开机"></a>原因1：服务器没开机</h2><h2 id="解决方法：使用开关机卡的终端发送开机指令，当开机界面运行到输入用户名和密码时，就可以用-VNC连接了，这个时候-VNC-当连接，要多试几次，一般两三次之后就可以连上，开机的密码和-VNC-的连接密码相同。"><a href="#解决方法：使用开关机卡的终端发送开机指令，当开机界面运行到输入用户名和密码时，就可以用-VNC连接了，这个时候-VNC-当连接，要多试几次，一般两三次之后就可以连上，开机的密码和-VNC-的连接密码相同。" class="headerlink" title="解决方法：使用开关机卡的终端发送开机指令，当开机界面运行到输入用户名和密码时，就可以用 VNC连接了，这个时候 VNC 当连接，要多试几次，一般两三次之后就可以连上，开机的密码和 VNC 的连接密码相同。"></a>解决方法：使用开关机卡的终端发送开机指令，当开机界面运行到输入用户名和密码时，就可以用 <strong>VNC</strong>连接了，这个时候 <strong>VNC</strong> 当连接，<font color="red">要多试几次</font>，一般两三次之后就可以连上，开机的密码和 <strong>VNC</strong> 的连接密码相同。</h2><h2 id="原因2：服务器IP设置出错"><a href="#原因2：服务器IP设置出错" class="headerlink" title="原因2：服务器IP设置出错"></a>原因2：服务器IP设置出错</h2><h2 id="解决方法：使用服务器远程设置，重新设置ip以及子网掩码。如果无效，则需要直接去411找老师开机房门，将显示器、键盘、鼠标直接连上服务器，直接对服务器进行操作。"><a href="#解决方法：使用服务器远程设置，重新设置ip以及子网掩码。如果无效，则需要直接去411找老师开机房门，将显示器、键盘、鼠标直接连上服务器，直接对服务器进行操作。" class="headerlink" title="解决方法：使用服务器远程设置，重新设置ip以及子网掩码。如果无效，则需要直接去411找老师开机房门，将显示器、键盘、鼠标直接连上服务器，直接对服务器进行操作。"></a>解决方法：使用服务器远程设置，重新设置ip以及子网掩码。如果无效，则需要直接去411找老师开机房门，将显示器、键盘、鼠标直接连上服务器，直接对服务器进行操作。</h2><p><br></p>
+<h2 id="问题五：门卡落里面了"><a href="#问题五：门卡落里面了" class="headerlink" title="问题五：门卡落里面了"></a>问题五：门卡落里面了</h2><h2 id="原因：自己面壁思过去！"><a href="#原因：自己面壁思过去！" class="headerlink" title="原因：自己面壁思过去！"></a>原因：自己面壁思过去！</h2><h2 id="解决方法：去陈为老师组借他们那儿大屏的门卡。"><a href="#解决方法：去陈为老师组借他们那儿大屏的门卡。" class="headerlink" title="解决方法：去陈为老师组借他们那儿大屏的门卡。"></a>解决方法：去陈为老师组借他们那儿大屏的门卡。</h2>
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者: <a href="http://www.wjc-vis.com">Jiachen Wang</a>
+            <p>原文链接: <a href="http://www.wjc-vis.com/2018/07/17/guideline of big_screen/">http://www.wjc-vis.com/2018/07/17/guideline of big_screen/</a>
+            <p>发表日期: <a href="http://www.wjc-vis.com/2018/07/17/guideline of big_screen/">July 17th 2018, 9:57:59 am</a>
+            <p>版权声明: 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/07/02/vis_consideration/" title= Consideration on visualization (1) >
+                    <div class="prevTitle">Consideration on visualization (1)</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:17764519325@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/VisWang" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/mywechat.jpeg" />
+                </span>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer qq" title=qq>
+                  
+                  <img class="profile-qr" src="/assets/myqq.jpeg" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面的话"><span class="toc-number">1.</span> <span class="toc-text">写在前面的话</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#门卡一定要记得带出来！！！"><span class="toc-number">2.</span> <span class="toc-text">门卡一定要记得带出来！！！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#没事不要去关闭任何大屏服务器！！！"><span class="toc-number">3.</span> <span class="toc-text">没事不要去关闭任何大屏服务器！！！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#用完了关闭-VNC-Viewer-就行，不要关机！！！"><span class="toc-number">4.</span> <span class="toc-text">用完了关闭 VNC Viewer 就行，不要关机！！！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#也不要没事随意去动服务器的IP设置，恢复起来真的很麻烦！！！"><span class="toc-number">5.</span> <span class="toc-text">也不要没事随意去动服务器的IP设置，恢复起来真的很麻烦！！！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#大屏使用步骤"><span class="toc-number">6.</span> <span class="toc-text">大屏使用步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-首先你需要拿到大屏的门卡，大屏是在410-2，进去后，右手边是灯，左手边是空调，进去后先把门卡揣兜里，千万别把门卡放桌上，容易忘记带出来"><span class="toc-number">6.1.</span> <span class="toc-text">1. 首先你需要拿到大屏的门卡，大屏是在410-2，进去后，右手边是灯，左手边是空调，进去后先把门卡揣兜里，千万别把门卡放桌上，容易忘记带出来!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-桌上有两个大屏的遥控器，都是通用的，对着大屏按下“ON”键，打开大屏。注：第一次按下“ON”可能不能开启所有的屏幕（我也不知道为啥），这时候就要多按几下。"><span class="toc-number">6.2.</span> <span class="toc-text">2. 桌上有两个大屏的遥控器，都是通用的，对着大屏按下“ON”键，打开大屏。注：第一次按下“ON”可能不能开启所有的屏幕（我也不知道为啥），这时候就要多按几下。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-屏幕开启后，使用桌上的华硕笔记本，打开桌面上的-BOC，在预设方案里，选择-WEB05（-WEB05-是方形像素适配，大屏的两边会有黑边）-或者-B05（-B05-是通过像素拉伸使得全屏铺满），一般为了视觉效果，使用的都是-B05。选择好之后，大屏上应该已经能显示所选方案的服务器的画面了。"><span class="toc-number">6.3.</span> <span class="toc-text">3. 屏幕开启后，使用桌上的华硕笔记本，打开桌面上的 BOC，在预设方案里，选择 WEB05（ WEB05 是方形像素适配，大屏的两边会有黑边） 或者 B05（ B05 是通过像素拉伸使得全屏铺满），一般为了视觉效果，使用的都是 B05。选择好之后，大屏上应该已经能显示所选方案的服务器的画面了。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-选择好适配方案后，在开始菜单中搜索-VNC-Viewer-，打开，连接结尾为：205-的ip，-用户名：-administrator-，密码：-Qaz2wsx"><span class="toc-number">6.4.</span> <span class="toc-text">4. 选择好适配方案后，在开始菜单中搜索 VNC Viewer ，打开，连接结尾为：205 的ip， 用户名： administrator ，密码： !Qaz2wsx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-现在你已经连上大屏服务器了，可以使用它了。-注：在大屏服务器里，不要按”enter“键，因为他和-BOC-的方案切换热键冲突，按了会直接切换方案。"><span class="toc-number">6.5.</span> <span class="toc-text">5. 现在你已经连上大屏服务器了，可以使用它了。 注：在大屏服务器里，不要按”enter“键，因为他和 BOC 的方案切换热键冲突，按了会直接切换方案。</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可能遇到的问题"><span class="toc-number">7.</span> <span class="toc-text">可能遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题一：找不到预设方案"><span class="toc-number">7.1.</span> <span class="toc-text">问题一：找不到预设方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因：BOC-没连接上大屏"><span class="toc-number">7.2.</span> <span class="toc-text">原因：BOC 没连接上大屏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法：点击“-连接-”"><span class="toc-number">7.3.</span> <span class="toc-text">解决方法：点击“ 连接 ”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题二：BOC-无法连接"><span class="toc-number">7.4.</span> <span class="toc-text">问题二：BOC 无法连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因：笔记本的wifi没连上或者没连对"><span class="toc-number">7.5.</span> <span class="toc-text">原因：笔记本的wifi没连上或者没连对</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法：将笔记本的wifi连上“-huawei-”，然后重试。"><span class="toc-number">7.6.</span> <span class="toc-text">解决方法：将笔记本的wifi连上“ huawei ”，然后重试。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题三：大屏服务器-B05-和-WEB05-无法上网"><span class="toc-number">7.7.</span> <span class="toc-text">问题三：大屏服务器 B05 和 WEB05 无法上网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因：B01-的-cow-没开"><span class="toc-number">7.8.</span> <span class="toc-text">原因：B01 的 cow 没开</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法：用-VNC-以同样的方法（相同的账号密码）连上IP我为：-201-的服务器，上去之后，在桌面某个文件夹里直接运行-cow"><span class="toc-number">7.9.</span> <span class="toc-text">解决方法：用 VNC 以同样的方法（相同的账号密码）连上IP我为： 201 的服务器，上去之后，在桌面某个文件夹里直接运行 cow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题四：VNC-连不上大屏服务器（-B01，B05，-WEB05-等）"><span class="toc-number">7.10.</span> <span class="toc-text">问题四：VNC 连不上大屏服务器（ B01，B05， WEB05 等）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因1：服务器没开机"><span class="toc-number">7.11.</span> <span class="toc-text">原因1：服务器没开机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法：使用开关机卡的终端发送开机指令，当开机界面运行到输入用户名和密码时，就可以用-VNC连接了，这个时候-VNC-当连接，要多试几次，一般两三次之后就可以连上，开机的密码和-VNC-的连接密码相同。"><span class="toc-number">7.12.</span> <span class="toc-text">解决方法：使用开关机卡的终端发送开机指令，当开机界面运行到输入用户名和密码时，就可以用 VNC连接了，这个时候 VNC 当连接，要多试几次，一般两三次之后就可以连上，开机的密码和 VNC 的连接密码相同。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因2：服务器IP设置出错"><span class="toc-number">7.13.</span> <span class="toc-text">原因2：服务器IP设置出错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法：使用服务器远程设置，重新设置ip以及子网掩码。如果无效，则需要直接去411找老师开机房门，将显示器、键盘、鼠标直接连上服务器，直接对服务器进行操作。"><span class="toc-number">7.14.</span> <span class="toc-text">解决方法：使用服务器远程设置，重新设置ip以及子网掩码。如果无效，则需要直接去411找老师开机房门，将显示器、键盘、鼠标直接连上服务器，直接对服务器进行操作。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题五：门卡落里面了"><span class="toc-number">7.15.</span> <span class="toc-text">问题五：门卡落里面了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因：自己面壁思过去！"><span class="toc-number">7.16.</span> <span class="toc-text">原因：自己面壁思过去！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法：去陈为老师组借他们那儿大屏的门卡。"><span class="toc-number">7.17.</span> <span class="toc-text">解决方法：去陈为老师组借他们那儿大屏的门卡。</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 6
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/02</span><a class="archive-post-title" href= "/2018/07/02/vis_consideration/" >Consideration on visualization (1)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/26</span><a class="archive-post-title" href= "/2018/06/26/info_vis/" >Note on "Infomation Visualization"</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/26</span><a class="archive-post-title" href= "/2018/06/26/some works/" >Who Am I ?</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/26</span><a class="archive-post-title" href= "/2018/06/26/introduction/" >Welcome!</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/26</span><a class="archive-post-title" href= "/2018/06/26/hexo trap/" >Some traps while using Hexo</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/07/17/guideline of big_screen/" >The guideline of the big_screen</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Skill"><span class="iconfont-archer">&#xe60a;</span>Skill</span>
+    
+        <span class="sidebar-category-name" data-categories="Introduction"><span class="iconfont-archer">&#xe60a;</span>Introduction</span>
+    
+        <span class="sidebar-category-name" data-categories="Essay"><span class="iconfont-archer">&#xe60a;</span>Essay</span>
+    
+        <span class="sidebar-category-name" data-categories="Note"><span class="iconfont-archer">&#xe60a;</span>Note</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Jiachen Wang"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
